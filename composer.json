@@ -1,0 +1,15 @@
+{
+    "name": "deemru/caproc",
+    "description": "PHP библиотека для автоматизации работы с УЦ (Центр регистрации)",
+    "type": "library",
+    "require": {
+        "php": ">=7.4",
+        "deemru/fetcher": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "deemru\\": "src/"
+        }
+    },
+    "license": "MIT"
+} 
