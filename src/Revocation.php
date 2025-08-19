@@ -19,7 +19,7 @@ class Revocation
         $body = [
             'rawRequest' => $rawRequest
         ];
-        $result = $this->client->fetcher->fetch( $url, json_encode( $body ), 'POST', [ 'Content-Type: application/json' ] );
+        $result = $this->client->fetcher->fetch( $url, true, json_encode( $body ), null, [ 'Content-Type: application/json' ] );
         if( $result === false )
             throw new \Exception( 'Fetcher error: ' . $this->client->fetcher->getLastError() );
         $data = json_decode( $result, true );
@@ -69,7 +69,7 @@ class Revocation
         $body = [
             'rawRequest' => $rawRequest
         ];
-        $result = $this->client->fetcher->fetch( $url, json_encode( $body ), 'POST', [ 'Content-Type: application/json' ] );
+        $result = $this->client->fetcher->fetch( $url, true, json_encode( $body ), null, [ 'Content-Type: application/json' ] );
         if( $result === false )
             throw new \Exception( 'Fetcher error: ' . $this->client->fetcher->getLastError() );
         return true;
@@ -81,7 +81,7 @@ class Revocation
     public function rejectRevocationRequest( string $id ): bool
     {
         $url = "/api/ra/revRequests/{$id}/reject";
-        $result = $this->client->fetcher->fetch( $url, null, 'POST' );
+        $result = $this->client->fetcher->fetch( $url, true );
         if( $result === false )
             throw new \Exception( 'Fetcher error: ' . $this->client->fetcher->getLastError() );
         return true;

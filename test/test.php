@@ -94,4 +94,15 @@ try
 catch( Exception $e )
 {
     echo 'Revocation error: ' . $e->getMessage() . "\n";
-} 
+}
+
+echo "\n==== ШАБЛОНЫ СЕРТИФИКАТОВ ====" . PHP_EOL;
+try
+{
+    $templates = $client->template->getTemplates();
+    print_r( $templates );
+}
+catch( Exception $e )
+{
+    echo 'Templates error: ' . $e->getMessage() . "\n";
+}

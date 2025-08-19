@@ -21,7 +21,7 @@ class CertRequest
             'authorityName' => $authorityName,
             'rawRequest' => $rawRequest
         ];
-        $result = $this->client->fetcher->fetch( $url, json_encode( $body ), 'POST', [ 'Content-Type: application/json' ] );
+        $result = $this->client->fetcher->fetch( $url, true, json_encode( $body ), null, [ 'Content-Type: application/json' ] );
         if( $result === false )
             throw new \Exception( 'Fetcher error: ' . $this->client->fetcher->getLastError() );
         $data = json_decode( $result, true );
@@ -39,7 +39,7 @@ class CertRequest
         $body = [
             'rawRequest' => $rawRequest
         ];
-        $result = $this->client->fetcher->fetch( $url, json_encode( $body ), 'POST', [ 'Content-Type: application/json' ] );
+        $result = $this->client->fetcher->fetch( $url, true, json_encode( $body ), null, [ 'Content-Type: application/json' ] );
         if( $result === false )
             throw new \Exception( 'Fetcher error: ' . $this->client->fetcher->getLastError() );
         return true;

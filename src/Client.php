@@ -9,6 +9,7 @@ class Client
     public $fetcher;
     public $certRequest;
     public $certificate;
+    public $template;
     public $folder;
     public $revocation;
     public $session;
@@ -19,6 +20,7 @@ class Client
         $this->fetcher = Fetcher::host( $baseUrl );
         $this->certRequest = new CertRequest( $this );
         $this->certificate = new Certificate( $this );
+        $this->template = new Template( $this );
         $this->folder = new Folder( $this );
         $this->revocation = new Revocation( $this );
         $this->session = new Session( $this );
