@@ -12,3 +12,4 @@
 - [Процесс обработки запросов](request_flow.md)
 - [Форматы запросов](request_formats.md)
 - [Запросы на отзыв](revocation_requests.md)
+- [Административные методы](admin.md)

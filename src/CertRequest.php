@@ -13,14 +13,15 @@ class CertRequest
     /**
      * Отправить запрос на сертификат
      */
-    public function createCertRequest( string $userId, string $authorityName, string $rawRequest ) : string
+    public function createCertRequest( string $userId, ?string $authorityName, string $rawRequest ) : string
     {
         $url = '/api/ra/certRequests';
         $body = [
             'userId' => $userId,
-            'authorityName' => $authorityName,
             'rawRequest' => $rawRequest
         ];
+        if( $authorityName !== null )
+            $body['authorityName'] = $authorityName;
         $result = $this->client->fetcher->fetch( $url, true, json_encode( $body ), null, [ 'Content-Type: application/json' ] );
         if( $result === false )
             throw new \Exception( 'Fetcher error: ' . $this->client->fetcher->getLastError() );

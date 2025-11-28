@@ -6,7 +6,7 @@
 POST /api/ra/certRequests
 ```
 - `userId` (string, uuid): Идентификатор пользователя
-- `authorityName` (string): Имя экземпляра ЦС
+- `authorityName` (string, nullable): Имя экземпляра ЦС
 - `rawRequest` (byte): Запрос на сертификат
 
 **Ответ:**

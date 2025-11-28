@@ -14,6 +14,7 @@ class Client
     public $revocation;
     public $session;
     public $user;
+    public $admin;
 
     public function __construct( string $baseUrl )
     {
@@ -25,5 +26,6 @@ class Client
         $this->revocation = new Revocation( $this );
         $this->session = new Session( $this );
         $this->user = new User( $this );
+        $this->admin = new Admin( $this );
     }
 } 
